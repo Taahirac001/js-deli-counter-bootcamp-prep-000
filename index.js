@@ -1,7 +1,9 @@
 var katzDeliLine = [];
+var ticket = 0;
 function takeANumber(line, name){
   line.push(name);
   var length = line.length;
+  ticket += 1;
   return `Welcome, ${name}. You are number ${length} in line.`;
 }
 
@@ -24,9 +26,10 @@ function currentLine(katzDeliLine){
     var newArray = [];
     for(var i = 0; i < katzDeliLine.length; i++){
       var name = katzDeliLine[i];
-      var index = i;
-      newArray.push(`${index + 1}. ${name}`);
+      var ticketNum = lineLength - i;
+      newArray.push(`${ticket - ticketNum}. ${name}`);
       var string = newArray.join(', ');
+      
     }
     return `The line is currently: ${string.toString()}`;
   }
